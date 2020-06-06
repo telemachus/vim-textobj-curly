@@ -1,0 +1,7 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Test the text objects
+Include: double-curly.vader
+Include: single-curly.vader
+
+# Test the movements
+Include: movement.vader

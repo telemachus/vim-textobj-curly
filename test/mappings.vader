@@ -1,0 +1,6 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Test the mappings
+Include: no-mappings.vader
+Include: new-double-mappings.vader
+Include: new-single-mappings.vader
+Include: new-movement-mappings.vader

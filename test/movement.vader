@@ -1,0 +1,77 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a little document with some double curly quotes):
+  I said,
+  “This is not a love song.” But they said, “Yes, it is!”
+  "Only straight quotes here!"
+
+Do (]c to move forward to the next double curly quote):
+  ]c
+
+Then (a test of where we are):
+  AssertEqual [0, 2, 1, 0], getpos('.')
+
+Do (]c]c to move forward to the second double curly quote):
+  ]c]c
+
+Then (another test of where we are):
+  AssertEqual [0, 2, 47, 0], getpos('.')
+
+Do (go to the end and then [c to go to the second double curly quote):
+  G[c
+
+Then (yet another test of where we are):
+  AssertEqual [0, 2, 47, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a little document with some single curly quotes):
+  I said,
+  ‘This is not a love song.’ But they said, ‘Yes, it is!’
+  "Only straight quotes here!"
+
+Do (]C to move forward to the next single curly quote):
+  ]C
+
+Then (a test of where we are):
+  AssertEqual [0, 2, 1, 0], getpos('.')
+
+Do (]C]C to move forward to the second single curly quote):
+  ]C]C
+
+Then (another test of where we are):
+  AssertEqual [0, 2, 47, 0], getpos('.')
+
+Do (go to the end and then [C to go to the second single curly quote):
+  G[C
+
+Then (yet another test of where we are):
+  AssertEqual [0, 2, 47, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set nowrapscan):
+  :set nowrapscan
+
+Given (a little document with some double curly quotes):
+  I said,
+  “This is not a love song.” But they said, “Yes, it is!”
+  "Only straight quotes here!"
+
+Do (]c]c]c to test whether nowrapscan is respected):
+  ]c]c]c
+
+Then (test whether we are still on the second double curly quote):
+  AssertEqual [0, 2, 47, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set wrapscan):
+  :set wrapscan
+
+Given (a little document with some double curly quotes):
+  I said,
+  “This is not a love song.” But they said, “Yes, it is!”
+  "Only straight quotes here!"
+
+Do (]c]c]c to test whether wrapscan is respected):
+  ]c]c]c
+
+Then (test whether we are still on the second double curly quote):
+  AssertEqual [0, 2, 1, 0], getpos('.')

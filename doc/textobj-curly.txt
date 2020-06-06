@@ -1,0 +1,213 @@
+*textobj-curly.txt*	text-obj-curly	Last change: 2020-06-06
+
+Version 0.0.1
+Copyright (c) 2020 Peter Aronoff <peter@aronoff.org>
+License BSD 3-Clause (see below or LICENSE for details)
+
+======================================================================
+CONTENTS				*textobj-curly-contents*
+
+	INTRODUCTION			|textobj-curly-introduction|
+	TEXT OBJECTS			|textobj-curly-text-objects|
+	MOVEMENTS			|textobj-curly-movements|
+	CONFIGURATION			|textobj-curly-configuration|
+	TIPS				|textobj-curly-tips|
+	LIMITATIONS			|textobj-curly-limitations|
+	SEE ALSO			|textobj-curly-see-also|
+	CONTRIBUTING			|textobj-curly-contributing|
+	THANKS				|textobj-curly-thanks|
+	CHANGES				|textobj-curly-changes|
+	LICENSE				|textobj-curly-license|
+
+
+======================================================================
+INTRODUCTION				*textobj-curly-introduction*
+
+This plugin provides text objects for text inside “double curly
+quotes” and ‘single curly quotes.’ It also makes it easier to move
+through text with many curly quotes.
+
+======================================================================
+TEXT OBJECTS				*textobj-text-objects*
+
+	{lhs}	{rhs}				~
+	----	---------------------------------
+	ic	inside double curly quotes
+	ac	inside double curly quotes and the quotes themselves
+	iC	inside single curly quotes
+	aC	inside single curly quotes and the quotes themselves
+
+Examples: >
+	" Cursor is at |
+	“This is not| a love song.” 
+	cic
+	“|”
+	“T|his is not a love song.” 
+	dac
+	|
+	‘This i|sn’t a love song either.’
+	diC
+	‘|’
+<
+
+In the last example, the text object looks past the apostrophe to find
+the entire quotation.
+
+======================================================================
+MOVEMENTS				*textobj-curly-movements*
+
+	{lhs}	{rhs}				~
+	----	---------------------------------
+	]c	move to the next double curly quotes
+	[c	move to the previous double curly quotes
+	]C	move to the next single curly quotes
+	[C	move to the previous single curly quotes
+
+Examples: >
+	" Cursor is at |
+	I| said, “This is not a love song.” But someone replied
+	angrily, “It is! It *is* a love song!”
+	]c
+	I said, “|This is not a love song.” But someone replied
+	angrily, “It is! It *is* a love song!”
+	]c
+	I said, “This is not a love song.” But someone replied
+	angrily, “|It is! It *is* a love song!”
+	[c
+	I said, “|This is not a love song.” But someone replied
+	angrily, “It is! It *is* a love song!”
+<
+
+======================================================================
+CONFIGURATION				*textobj-curly-configuration*
+
+If you don’t want the default mappings, add this to your Vim
+configuration: >
+	let g:textobj_curly_no_default_key_mappings=1
+<
+
+Then you can create whatever mappings suit you. For example: >
+	" If you like q (for ‘quote’) more than c (for ‘curly’):
+	omap aq <Plug>(textobj-curly-double-a)
+	omap iq <Plug>(textobj-curly-double-i)
+	xmap aQ <Plug>(textobj-curly-single-a)
+	xmap iQ <Plug>(textobj-curly-single-i)
+	map ]q <Plug>(textobj-curly-double-n)
+	map [q <Plug>(textobj-curly-double-p)
+	map ]Q <Plug>(textobj-curly-single-n)
+	map [Q <Plug>(textobj-curly-single-p)
+<
+
+======================================================================
+TIPS					*textobj-curly-tips*
+
+If you want |matchit| support for curly quotes, you can add something
+like the following to your startup files: >
+
+	if exists('b:match_words')
+	 	let b:match_words.=',“:”,‘:’\(\w\)\@!'
+	else
+		let b:match_words='“:”,‘:’\(\w\)\@!'
+	endif
+<
+
+See |b:match_words| for more details.
+
+======================================================================
+LIMITATIONS				*textobj-curly-limitations*
+
+Neither the text objects nor the movements support a |count|. (This is
+a result of the same limitation in the plugin that underlies this one,
+vim-textojb-user.)
+
+======================================================================
+SEE ALSO				*textobj-curly-see-also*
+
+There are two plugins that do nearly all of what this one does, plus
+a whole lot more. I wrote this to learn, and also because I wanted
+something more minimal. But I encourage you to take a look at
+vim-textobj-quote and vim-sandwich, especially if you want further
+features.
+
+	<https://github.com/reedes/vim-textobj-quote>
+	<https://github.com/machakann/vim-sandwich>
+
+======================================================================
+CONTRIBUTING				*textobj-curly-contributing*
+
+If you find a bug, I would love to hear about it. Please email me at
+<peter@aronoff.org>. I would also love to learn if you have a better
+way to do something. (I am no expert at VimL, but I hope to improve.)
+
+You’re welcome to contact me if you want a new feature, but I’m not
+likely to say yes. My goal was to make this as minimal as possible.
+The plugin has the features that I consider essential, and I don’t
+plan to add any others.
+
+======================================================================
+CREDITS					*textobj-curly-credits*
+
+I took a great deal of inspiration—as well as some code—from
+vim-textobj-quote and vim-sandwich. I thank Reed Es and machakann for
+their work.
+
+	<https://github.com/reedes/vim-textobj-quote>
+	<https://github.com/machakann/vim-sandwich>
+
+Kana Natsuno’s vim-textobj-user does almost all the heavy lifting
+here. vim-textobj-user makes it extremely simple to create new text
+objects.  I encourage you to check it out, as well as the listing of
+all the text objects that Kana and others have built with it. I’m very
+grateful to Kana for his many plugins.
+
+	<https://github.com/kana/vim-textobj-user>
+	<https://github.com/kana/vim-textobj-user/wiki>
+
+Thanks also to June Gunn for vader.vim. He made it almost fun to test
+VimL.
+
+	<https://github.com/junegunn/vader.vim>
+
+======================================================================
+CHANGES					*textobj-curly-changes*
+
+	0.0.1				2020-06-06
+
+======================================================================
+LICENSE					*textobj-curly-license*
+
+BSD 3-Clause License {{{
+	Redistribution and use in source and binary forms, with or
+	without modification, are permitted provided that the
+	following conditions are met:
+
+	1. Redistributions of source code must retain the above
+	   copyright notice, this list of conditions and the following
+	   disclaimer.
+
+	2. Redistributions in binary form must reproduce the above
+	   copyright notice, this list of conditions and the following
+	   disclaimer in the documentation and/or other materials
+	   provided with the distribution.
+
+	3. Neither the name of the copyright holder nor the names of
+	   its contributors may be used to endorse or promote products
+	   derived from this software without specific prior written
+	   permission.
+
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+	CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+	INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+	MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+	CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+	SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+	NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+	HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+	CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+	OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+	EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+}}}
+
+vim:tw=70:ts=8:noet:ft=help:norl

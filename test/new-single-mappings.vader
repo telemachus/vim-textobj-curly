@@ -1,0 +1,67 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Execute (test if the global var is set):
+  AssertEqual 1, g:textobj_curly_no_default_key_mappings
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new single-i xmapping):
+  xmap iQ <Plug>(textobj-curly-single-i)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  ‘This is fun, isn’t it?’
+
+Do (select all text within single quotes and make it uppercase):
+  viQU
+
+Expect (the new mappings to work):
+  ‘THIS IS FUN, ISN’T IT?’
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new single-i omapping):
+  omap iQ <Plug>(textobj-curly-single-i)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  ‘This is fun, isn’t it?’
+
+Do (delete all text within single quotes):
+  diQ
+
+Expect (the new mappings to work):
+  ‘’
+
+Do (change all text within single quotes):
+  ciQFoo, foo, foo!
+
+Expect (the new mappings to work):
+  ‘Foo, foo, foo!’
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new single-a xmapping):
+  xmap aQ <Plug>(textobj-curly-single-a)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  ‘This is fun, isn’t it?’
+
+Do (select all text including single quotes and make it uppercase):
+  vaQU
+
+Expect (the new mappings to work):
+  ‘THIS IS FUN, ISN’T IT?’
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new single-i omapping):
+  omap aQ <Plug>(textobj-curly-single-a)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  ‘This is fun, isn’t it?’
+
+Do (select all text including single quotes and replace it):
+  daQiFoo
+
+Expect (the new mappings to work):
+  Foo
+
+Do (change all text including single quotes):
+  caQFoo, foo, foo!
+
+Expect (the new mappings to work):
+  Foo, foo, foo!

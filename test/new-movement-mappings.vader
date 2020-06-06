@@ -1,0 +1,67 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Execute (test if the global var is set):
+  AssertEqual 1, g:textobj_curly_no_default_key_mappings
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a sentence with a curly double quote):
+  I said, “This is fun, isn’t it?”
+
+Do (move to the start of the quote):
+  ]c
+
+Then (we should not have moved):
+  AssertEqual [0, 1, 1, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new mapping for forward double curly movement):
+  map ]q <Plug>(textobj-curly-double-n)
+
+Given (a sentence with a curly double quote):
+  I said, “This is fun, isn’t it?”
+
+Do (move to the start of the quote):
+  ]q
+
+Then (we should have moved):
+  AssertEqual [0, 1, 9, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new mapping for backward double curly movement):
+  map [q <Plug>(textobj-curly-double-p)
+
+Given (a sentence with two curly double quotes):
+  I said, “This is fun, isn’t it?”
+  They replied, “It sure is!”
+
+Do (go to end and then backwards to second quote):
+  G$[q
+
+Then (we should have moved):
+  AssertEqual [0, 2, 15, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new mapping for forward single curly movement):
+  map ]Q <Plug>(textobj-curly-single-n)
+
+Given (a sentence with a curly single quote):
+  I said, ‘This is fun, isn’t it?’
+
+Do (move to the start of the quote):
+  ]Q
+
+Then (we should have moved):
+  AssertEqual [0, 1, 9, 0], getpos('.')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new mapping for backward single curly movement):
+  map [Q <Plug>(textobj-curly-single-p)
+
+Given (a sentence with two curly single quotes):
+  I said, ‘This is fun, isn’t it?’
+  They replied, ‘It sure is!’
+
+Do (move to the end of the text and then to start of the second quote):
+  G$[Q
+
+Then (we should have moved):
+  AssertEqual [0, 2, 15, 0], getpos('.')

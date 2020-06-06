@@ -1,0 +1,23 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Execute (a check of the global variable):
+  AssertEqual 1, g:textobj_curly_no_default_key_mappings
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a sentence with curly double quotes and a curly apostrophe):
+  “This is fun, isn’t it?”
+
+Do (select all text within the double quotes and uppercase it):
+  vicU
+
+Expect (the text still to be lowercase):
+  “This is fun, isn’t it?”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a sentence with curly single quotes and a curly apostrophe):
+  ‘This is fun, isn’t it?’
+
+Do (try to select all text within the double quotes and uppercase it):
+  viCU
+
+Expect (the text still to be lowercase):
+  ‘This is fun, isn’t it?’

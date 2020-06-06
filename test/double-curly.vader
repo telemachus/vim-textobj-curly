@@ -1,0 +1,191 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a straightforward double curly quote):
+  “This is not a love song.”
+
+Do (select inside double curly quotes):
+  vicU
+
+Expect (an uppercase curly quote):
+  “THIS IS NOT A LOVE SONG.”
+
+Do (change text inside the double curly quotes):
+  cicThis is a love song.
+
+Expect (the new text):
+  “This is a love song.”
+
+Do (delete text inside the double curly quotes):
+  dic
+
+Expect (only the quotes to remain):
+  “”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a double curly quote with an apostrophe inside of it):
+  “This isn’t a love song.”
+
+Do (select inside double curly quote and make it uppercase):
+  vicU
+
+Expect (an uppercase curly quote):
+  “THIS ISN’T A LOVE SONG.”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (no curly quotes):
+  This is not a love song.
+
+Do (make the whole curly quote uppercase):
+  vicU
+
+Expect (no change):
+  This is not a love song.
+
+Do (delete the quote):
+  dic
+
+Expect (no change):
+  This is not a love song.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a double curly quote inside of a single curly quote):
+  ‘This is “not” a love song.’
+
+Do (select the inner double curly quote and make it uppercase):
+  /not\<CR>vicU
+
+Expect (an uppercase inner double curly quote):
+  ‘This is “NOT” a love song.’
+
+Given (a double curly quote inside of a single curly quote):
+  ‘This is “not” a love song.’
+
+Do (change the inner double curly quote):
+  /not\<CR>cicdefinitely
+
+Expect (an uppercase inner double curly quote):
+  ‘This is “definitely” a love song.’
+
+Given (a double curly quote inside of a single curly quote):
+  ‘This is “not” a love song.’
+
+Do (delete the inner double curly quote):
+  /not\<CR>dac
+
+Expect (an empty inner double curly quote):
+# Note that the extra space is not a typo. I am not yet sure how I feel about
+# this. In the future, maybe I should have the regex eat any following space?
+  ‘This is  a love song.’
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a two-line double curly quote):
+  “This is not a love song. This is definitely
+  not a love song.”
+
+Do (select the entire curly quote and make it uppercase):
+  vicU
+
+Expect (an uppercase curly quote):
+  “THIS IS NOT A LOVE SONG. THIS IS DEFINITELY
+  NOT A LOVE SONG.”
+
+Given (a two-line double curly quote):
+  “This is not a love song. This is definitely
+  not a love song.”
+
+Do (change the whole curly quote):
+  cicThis might be a love song.
+
+Expect (the new curly quote):
+  “This might be a love song.”
+
+Given (a two-line double curly quote):
+  “This is not a love song. This is definitely
+  not a love song.”
+
+Do (delete everything inside the curly quote):
+  dic
+
+Expect (only the quotes to remain):
+  “”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a two-line double curly quote):
+  “This is not a love song. This is definitely
+  not a love song.”
+
+Do (move to the second line, select the quote, and make it uppercase):
+  jvicU
+
+Expect (an uppercase curly quote):
+  “THIS IS NOT A LOVE SONG. THIS IS DEFINITELY
+  NOT A LOVE SONG.”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a long double curly quote with a single curly quote inside it):
+  “This is not a love song. This is ‘definitely
+  not’ a love song.”
+
+Do (move to the second line, select the quote, and make it uppercase):
+  jvicU
+
+Expect (an uppercase curly quote):
+  “THIS IS NOT A LOVE SONG. THIS IS ‘DEFINITELY
+  NOT’ A LOVE SONG.”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a straightforward double curly quote):
+  “This is not a love song.”
+
+Do (select around double curly quotes and make it uppercase):
+  vacU
+
+Expect (an uppercase curly quote):
+  “THIS IS NOT A LOVE SONG.”
+
+Given (a straightforward double curly quote):
+  “This is not a love song.”
+
+Do (change text including the double curly quotes):
+  cacThis is a love song.
+
+Expect (the new text):
+  This is a love song.
+
+Given (a straightforward double curly quote):
+  “This is not a love song.”
+
+Do (delete text including the double curly quotes):
+  dac
+
+Expect (nothing left):
+# Two spaces are necessary here in order to get vader to register this as an
+# empty string. Do not remove or let tooling remove these two spaces!
+  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Given (a one character double curly quote):
+  “t”
+
+Do (select around double curly quotes and make it uppercase):
+  vicU
+
+Expect (an uppercase curly quote):
+  “T”
+
+Given (a straightforward double curly quote):
+  “t”
+
+Do (change text including the double curly quotes):
+  cicThis is a love song.
+
+Expect (the new text):
+  “This is a love song.”
+
+Given (a straightforward double curly quote):
+  “t”
+
+Do (delete text including the double curly quotes):
+  dic
+
+Expect (only the double curly quotes to remain):
+  “”

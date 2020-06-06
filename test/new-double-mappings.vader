@@ -1,0 +1,67 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Execute (test if the global var is set):
+  AssertEqual 1, g:textobj_curly_no_default_key_mappings
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new double-i xmapping):
+  xmap iq <Plug>(textobj-curly-double-i)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  “This is fun, isn’t it?”
+
+Do (select all text within double quotes and uppercase it):
+  viqU
+
+Expect (the new mappings to work):
+  “THIS IS FUN, ISN’T IT?”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new double-i omapping):
+  omap iq <Plug>(textobj-curly-double-i)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  “This is fun, isn’t it?”
+
+Do (delete all text within double quotes):
+  diq
+
+Expect (the new mappings to work):
+  “”
+
+Do (change all text within double quotes):
+  ciqFoo, foo, foo!
+
+Expect (the new mappings to work):
+  “Foo, foo, foo!”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new double-a xmapping):
+  xmap aq <Plug>(textobj-curly-double-a)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  “This is fun, isn’t it?”
+
+Do (select all text including double quotes and uppercase it):
+  viqU
+
+Expect (the new mappings to work):
+  “THIS IS FUN, ISN’T IT?”
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before (set new double-i omapping):
+  omap aq <Plug>(textobj-curly-double-a)
+
+Given (a sentence with curly quotes and a curly apostrophe):
+  “This is fun, isn’t it?”
+
+Do (select all text within double quotes and uppercase it):
+  daqiFoo
+
+Expect (the new mappings to work):
+  Foo
+
+Do (change all text including double quotes):
+  caqFoo, foo, foo!
+
+Expect (the new mappings to work):
+  Foo, foo, foo!

@@ -1,0 +1,240 @@
+NVIM v0.5.0-550-g39f802bef
+Build type: Release
+LuaJIT 2.1.0-beta3
+Compilation: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -O2 -DNDEBUG -Wall -Wextra -pedantic -Wno-unused-parameter -Wstrict-prototypes -std=gnu99 -Wshadow -Wconversion -Wmissing-prototypes -Wimplicit-fallthrough -Wvla -fstack-protector-strong -fno-common -fdiagnostics-color=always -DINCLUDE_GENERATED_DECLARATIONS -D_GNU_SOURCE -DNVIM_MSGPACK_HAS_FLOAT32 -DNVIM_UNIBI_HAS_VAR_FROM -DMIN_LOG_LEVEL=3 -I/Users/telemachus/Downloads/src/neovim/build/config -I/Users/telemachus/Downloads/src/neovim/src -I/Users/telemachus/Downloads/src/neovim/.deps/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -I/usr/local/opt/gettext/include -I/Users/telemachus/Downloads/src/neovim/build/src/nvim/auto -I/Users/telemachus/Downloads/src/neovim/build/include
+Compiled by telemachus@mbpr1315-3192.local
+
+Features: +acl +iconv +tui
+See ":help feature-compile"
+
+   system vimrc file: "$VIM/sysinit.vim"
+  fall-back for $VIM: "/Users/telemachus/local/neovim/share/nvim"
+
+Run :checkhealth for more info
+
+Starting Vader: 1 suite(s), 46 case(s)
+  Starting Vader: /Users/telemachus/Documents/git-repos/vim-textobj-curly/test/basics.vader
+    ( 1/46) [  GIVEN] a straightforward double curly quote
+    ( 1/46) [     DO] select inside double curly quotes
+    ( 1/46) [ EXPECT] an uppercase curly quote
+    ( 2/46) [  GIVEN] a straightforward double curly quote
+    ( 2/46) [     DO] change text inside the double curly quotes
+    ( 2/46) [ EXPECT] the new text
+    ( 3/46) [  GIVEN] a straightforward double curly quote
+    ( 3/46) [     DO] delete text inside the double curly quotes
+    ( 3/46) [ EXPECT] only the quotes to remain
+    ( 4/46) [  GIVEN] a double curly quote with an apostrophe inside of it
+    ( 4/46) [     DO] select inside double curly quote and make it uppercase
+    ( 4/46) [ EXPECT] an uppercase curly quote
+    ( 5/46) [  GIVEN] no curly quotes
+    ( 5/46) [     DO] make the whole curly quote uppercase
+    ( 5/46) [ EXPECT] no change
+    ( 6/46) [  GIVEN] no curly quotes
+    ( 6/46) [     DO] delete the quote
+    ( 6/46) [ EXPECT] no change
+    ( 7/46) [  GIVEN] a double curly quote inside of a single curly quote
+    ( 7/46) [     DO] select the inner double curly quote and make it uppercase
+    ( 7/46) [ EXPECT] an uppercase inner double curly quote
+    ( 8/46) [  GIVEN] a double curly quote inside of a single curly quote
+    ( 8/46) [     DO] change the inner double curly quote
+    ( 8/46) [ EXPECT] an uppercase inner double curly quote
+    ( 9/46) [  GIVEN] a double curly quote inside of a single curly quote
+    ( 9/46) [     DO] delete the inner double curly quote
+    ( 9/46) [ EXPECT] an empty inner double curly quote
+    (10/46) [  GIVEN] a two-line double curly quote
+    (10/46) [     DO] select the entire curly quote and make it uppercase
+    (10/46) [ EXPECT] an uppercase curly quote
+    (11/46) [  GIVEN] a two-line double curly quote
+    (11/46) [     DO] change the whole curly quote
+    (11/46) [ EXPECT] the new curly quote
+    (12/46) [  GIVEN] a two-line double curly quote
+    (12/46) [     DO] delete everything inside the curly quote
+    (12/46) [ EXPECT] only the quotes to remain
+    (13/46) [  GIVEN] a two-line double curly quote
+    (13/46) [     DO] move to the second line, select the quote, and make it uppercase
+    (13/46) [ EXPECT] an uppercase curly quote
+    (14/46) [  GIVEN] a long double curly quote with a single curly quote inside it
+    (14/46) [     DO] move to the second line, select the quote, and make it uppercase
+    (14/46) [ EXPECT] an uppercase curly quote
+    (15/46) [  GIVEN] a straightforward double curly quote
+    (15/46) [     DO] select around double curly quotes and make it uppercase
+    (15/46) [ EXPECT] an uppercase curly quote
+    (16/46) [  GIVEN] a straightforward double curly quote
+    (16/46) [     DO] change text including the double curly quotes
+    (16/46) [ EXPECT] the new text
+    (17/46) [  GIVEN] a straightforward double curly quote
+    (17/46) [     DO] delete text including the double curly quotes
+    (17/46) [ EXPECT] nothing left
+    (18/46) [  GIVEN] a one character double curly quote
+    (18/46) [     DO] select around double curly quotes and make it uppercase
+    (18/46) [ EXPECT] an uppercase curly quote
+    (19/46) [  GIVEN] a straightforward double curly quote
+    (19/46) [     DO] change text including the double curly quotes
+    (19/46) [ EXPECT] the new text
+    (20/46) [  GIVEN] a straightforward double curly quote
+    (20/46) [     DO] delete text including the double curly quotes
+    (20/46) [ EXPECT] only the double curly quotes to remain
+    (21/46) [  GIVEN] a straightforward single curly quote
+    (21/46) [     DO] select inside single curly quotes
+    (21/46) [ EXPECT] the curly quote in uppercase
+    (22/46) [  GIVEN] a straightforward single curly quote
+    (22/46) [     DO] change text inside the single curly quotes
+    (22/46) [ EXPECT] the new text
+    (23/46) [  GIVEN] a straightforward single curly quote
+    (23/46) [     DO] delete text inside the single curly quotes
+    (23/46) [ EXPECT] only the quotes to remain
+    (24/46) [  GIVEN] a single curly quote with an apostrophe inside of it
+    (24/46) [     DO] select single curly quotes
+    (24/46) [ EXPECT] the curly quote in uppercase
+    (25/46) [  GIVEN] no curly quotes
+    (25/46) [     DO] select a single curly quote and make it uppercase
+    (25/46) [ EXPECT] no change
+    (26/46) [  GIVEN] single curly quotes inside of double curly quotes
+    (26/46) [     DO] select the inner curly quote and make it uppercase
+    (26/46) [ EXPECT] an uppercase inner curly quote
+    (27/46) [  GIVEN] a two-line single curly quote
+    (27/46) [     DO] select the whole curly quote and make it uppercase
+    (27/46) [ EXPECT] an uppercase curly quote
+    (28/46) [  GIVEN] a two-line single curly quote with an apostrophe in it
+    (28/46) [     DO] select the whole curly quote and make it uppercase
+    (28/46) [ EXPECT] an uppercase curly quote
+    (29/46) [  GIVEN] a two-line single curly quote
+    (29/46) [     DO] change the entire curly quote
+    (29/46) [ EXPECT] an uppercase curly quote
+    (30/46) [  GIVEN] a two-line single curly quote
+    (30/46) [     DO] delete the whole curly quote
+    (30/46) [ EXPECT] only the single quotes to remain
+    (31/46) [  GIVEN] a two-line single curly quote
+    (31/46) [     DO] move to the second line, select the quote, and make it uppercase
+    (31/46) [ EXPECT] an uppercase curly quote
+    (32/46) [  GIVEN] a long single curly quote with a double curly quote inside it
+    (32/46) [     DO] move to the second line, select the quote, and make it uppercase
+    (32/46) [ EXPECT] an uppercase curly quote
+    (33/46) [  GIVEN] a straightforward single curly quote
+    (33/46) [     DO] select around single curly quotes and make it uppercase
+    (33/46) [ EXPECT] an uppercase curly quote
+    (34/46) [  GIVEN] a straightforward single curly quote
+    (34/46) [     DO] change text including the single curly quotes
+    (34/46) [ EXPECT] the new text
+    (35/46) [  GIVEN] a straightforward single curly quote
+    (35/46) [     DO] delete text including the double curly quotes
+    (35/46) [ EXPECT] an empty string
+    (36/46) [  GIVEN] a one character single curly quote
+    (36/46) [     DO] select around single curly quotes and make it uppercase
+    (36/46) [ EXPECT] an uppercase curly quote
+    (37/46) [  GIVEN] a straightforward single curly quote
+    (37/46) [     DO] change text including the single curly quotes
+    (37/46) [ EXPECT] the new text
+    (38/46) [  GIVEN] a straightforward single curly quote
+    (38/46) [     DO] delete text including the single curly quotes
+    (38/46) [ EXPECT] only the single curly quotes to remain
+    (39/46) [  GIVEN] a little document with some double curly quotes
+    (39/46) [     DO] ]c to move forward to the next double curly quote
+    (39/46) [   THEN] a test of where we are
+    (40/46) [  GIVEN] a little document with some double curly quotes
+    (40/46) [     DO] ]c]c to move forward to the second double curly quote
+    (40/46) [   THEN] another test of where we are
+    (41/46) [  GIVEN] a little document with some double curly quotes
+    (41/46) [     DO] go to the end and then [c to go to the second double curly quote
+    (41/46) [   THEN] yet another test of where we are
+    (42/46) [  GIVEN] a little document with some single curly quotes
+    (42/46) [     DO] ]C to move forward to the next single curly quote
+    (42/46) [   THEN] a test of where we are
+    (43/46) [  GIVEN] a little document with some single curly quotes
+    (43/46) [     DO] ]C]C to move forward to the second single curly quote
+    (43/46) [   THEN] another test of where we are
+    (44/46) [  GIVEN] a little document with some single curly quotes
+    (44/46) [     DO] go to the end and then [C to go to the second single curly quote
+    (44/46) [   THEN] yet another test of where we are
+    (45/46) [  GIVEN] a little document with some double curly quotes
+    (45/46) [     DO] ]c]c]c to test whether nowrapscan is respected
+    (45/46) [   THEN] test whether we are still on the second double curly quote
+    (46/46) [  GIVEN] a little document with some double curly quotes
+    (46/46) [     DO] ]c]c]c to test whether wrapscan is respected
+    (46/46) [   THEN] test whether we are still on the second double curly quote
+  Success/Total: 46/46
+Success/Total: 46/46 (assertions: 8/8)
+Elapsed time: 0.45 sec.
+NVIM v0.5.0-550-g39f802bef
+Build type: Release
+LuaJIT 2.1.0-beta3
+Compilation: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -O2 -DNDEBUG -Wall -Wextra -pedantic -Wno-unused-parameter -Wstrict-prototypes -std=gnu99 -Wshadow -Wconversion -Wmissing-prototypes -Wimplicit-fallthrough -Wvla -fstack-protector-strong -fno-common -fdiagnostics-color=always -DINCLUDE_GENERATED_DECLARATIONS -D_GNU_SOURCE -DNVIM_MSGPACK_HAS_FLOAT32 -DNVIM_UNIBI_HAS_VAR_FROM -DMIN_LOG_LEVEL=3 -I/Users/telemachus/Downloads/src/neovim/build/config -I/Users/telemachus/Downloads/src/neovim/src -I/Users/telemachus/Downloads/src/neovim/.deps/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -I/usr/local/opt/gettext/include -I/Users/telemachus/Downloads/src/neovim/build/src/nvim/auto -I/Users/telemachus/Downloads/src/neovim/build/include
+Compiled by telemachus@mbpr1315-3192.local
+
+Features: +acl +iconv +tui
+See ":help feature-compile"
+
+   system vimrc file: "$VIM/sysinit.vim"
+  fall-back for $VIM: "/Users/telemachus/local/neovim/share/nvim"
+
+Run :checkhealth for more info
+
+Starting Vader: 1 suite(s), 23 case(s)
+  Starting Vader: /Users/telemachus/Documents/git-repos/vim-textobj-curly/test/mappings.vader
+    ( 1/23) [EXECUTE] a check of the global variable
+    ( 2/23) [  GIVEN] a sentence with curly double quotes and a curly apostrophe
+    ( 2/23) [     DO] select all text within the double quotes and uppercase it
+    ( 2/23) [ EXPECT] the text still to be lowercase
+    ( 3/23) [  GIVEN] a sentence with curly single quotes and a curly apostrophe
+    ( 3/23) [     DO] try to select all text within the double quotes and uppercase it
+    ( 3/23) [ EXPECT] the text still to be lowercase
+    ( 4/23) [  GIVEN] a sentence with curly single quotes and a curly apostrophe
+    ( 4/23) [EXECUTE] test if the global var is set
+    ( 5/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    ( 5/23) [     DO] select all text within double quotes and uppercase it
+    ( 5/23) [ EXPECT] the new mappings to work
+    ( 6/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    ( 6/23) [     DO] delete all text within double quotes
+    ( 6/23) [ EXPECT] the new mappings to work
+    ( 7/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    ( 7/23) [     DO] change all text within double quotes
+    ( 7/23) [ EXPECT] the new mappings to work
+    ( 8/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    ( 8/23) [     DO] select all text including double quotes and uppercase it
+    ( 8/23) [ EXPECT] the new mappings to work
+    ( 9/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    ( 9/23) [     DO] select all text within double quotes and uppercase it
+    ( 9/23) [ EXPECT] the new mappings to work
+    (10/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (10/23) [     DO] change all text including double quotes
+    (10/23) [ EXPECT] the new mappings to work
+    (11/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (11/23) [EXECUTE] test if the global var is set
+    (12/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (12/23) [     DO] select all text within single quotes and make it uppercase
+    (12/23) [ EXPECT] the new mappings to work
+    (13/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (13/23) [     DO] delete all text within single quotes
+    (13/23) [ EXPECT] the new mappings to work
+    (14/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (14/23) [     DO] change all text within single quotes
+    (14/23) [ EXPECT] the new mappings to work
+    (15/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (15/23) [     DO] select all text including single quotes and make it uppercase
+    (15/23) [ EXPECT] the new mappings to work
+    (16/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (16/23) [     DO] select all text including single quotes and replace it
+    (16/23) [ EXPECT] the new mappings to work
+    (17/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (17/23) [     DO] change all text including single quotes
+    (17/23) [ EXPECT] the new mappings to work
+    (18/23) [  GIVEN] a sentence with curly quotes and a curly apostrophe
+    (18/23) [EXECUTE] test if the global var is set
+    (19/23) [  GIVEN] a sentence with a curly double quote
+    (19/23) [     DO] move to the start of the quote
+    (19/23) [   THEN] we should not have moved
+    (20/23) [  GIVEN] a sentence with a curly double quote
+    (20/23) [     DO] move to the start of the quote
+    (20/23) [   THEN] we should have moved
+    (21/23) [  GIVEN] a sentence with two curly double quotes
+    (21/23) [     DO] go to end and then backwards to second quote
+    (21/23) [   THEN] we should have moved
+    (22/23) [  GIVEN] a sentence with a curly single quote
+    (22/23) [     DO] move to the start of the quote
+    (22/23) [   THEN] we should have moved
+    (23/23) [  GIVEN] a sentence with two curly single quotes
+    (23/23) [     DO] move to the end of the text and then to start of the second quote
+    (23/23) [   THEN] we should have moved
+  Success/Total: 23/23
+Success/Total: 23/23 (assertions: 9/9)
+Elapsed time: 0.28 sec.
