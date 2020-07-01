@@ -66,16 +66,16 @@ MOVEMENTS				*textobj-curly-movements*
 Examples: >
 	" Cursor is at |
 	I| said, “This is not a love song.” But someone replied
-	angrily, “It is! It *is* a love song!”
+	angrily, “It is! It _is_ a love song!”
 	]c
 	I said, “|This is not a love song.” But someone replied
-	angrily, “It is! It *is* a love song!”
+	angrily, “It is! It _is_ a love song!”
 	]c
 	I said, “This is not a love song.” But someone replied
-	angrily, “|It is! It *is* a love song!”
+	angrily, “|It is! It _is_ a love song!”
 	[c
 	I said, “|This is not a love song.” But someone replied
-	angrily, “It is! It *is* a love song!”
+	angrily, “It is! It _is_ a love song!”
 <
 
 ======================================================================
